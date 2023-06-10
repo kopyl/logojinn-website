@@ -1,0 +1,136 @@
+.section-intro {
+	padding-bottom: 6rem;
+
+	@include breakpoint(md, max) {
+		padding-top: 6rem;
+	}
+
+	.container {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+
+		@include breakpoint(md, max) {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	.h1 {
+		margin-bottom: 19.7rem;
+		font-weight: 400;
+		font-size: 6.6rem;
+		line-height: 1.33;
+
+		@include breakpoint(md, max) {
+			margin-bottom: 5rem;
+			font-size: 4.3rem;
+			text-align: center;
+		}
+	}
+
+	.btn {
+		font-size: 1.5rem;
+	}
+
+	.left-side {
+		max-width: 45.9rem;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		@include breakpoint(md, max) {
+			margin-bottom: 10rem;
+		}
+
+		.btn {
+			max-width: 100%;
+
+			&:hover {
+				@include breakpoint(md, min) {
+					background: #19191b;
+				}
+			}
+		}
+	}
+
+	.right-side {
+		max-width: 27.9rem;
+		width: 100%;
+
+		@include breakpoint(md, min) {
+			margin-top: -1.2rem;
+			margin-left: 2rem;
+		}
+
+		.btn {
+			@include breakpoint(md, max) {
+				max-width: 100%;
+			}
+
+			&:hover {
+				@include breakpoint(md, min) {
+					background: #0045f5;
+				}
+			}
+		}
+	}
+
+	.left-side,
+	.right-side {
+		@include breakpoint(md, max) {
+			max-width: 100%;
+		}
+	}
+
+	.logos-block {
+		font-family: $secondary-font;
+
+		&:not(:last-child) {
+			margin-bottom: 6.2rem;
+		}
+
+		&:last-child {
+			margin-bottom: 10.3rem;
+
+			@include breakpoint(md, max) {
+				margin-bottom: 5rem;
+			}
+		}
+
+		.list {
+			min-height: 8.3rem;
+			margin: 0 0 1.4rem 0;
+			padding: 1rem 1.6rem;
+			list-style: none;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background: rgba(25, 25, 27, 0.05);
+			border-radius: 1rem;
+
+			.list-item {
+				display: flex;
+			}
+
+			.icon-holder {
+				width: 5.1rem;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+
+		.block-footer {
+			display: flex;
+			justify-content: space-between;
+			font-size: 1.5rem;
+			line-height: 1.333;
+			text-align: right;
+			color: #19191b;
+			opacity: 0.8;
+		}
+	}
+}

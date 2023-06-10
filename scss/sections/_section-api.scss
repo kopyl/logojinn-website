@@ -1,0 +1,74 @@
+.section-api {
+	padding-top: 14rem;
+	padding-bottom: 7.8rem;
+
+	@include breakpoint(md, max) {
+		padding-top: 7rem;
+		padding-bottom: 4.5rem;
+	}
+
+	.section-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 14rem;
+
+		@include breakpoint(sm, max) {
+			flex-direction: column;
+			margin-bottom: 7rem;
+		}
+
+		.h2 {
+			@include breakpoint(sm, max) {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+
+	.banner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 10.5rem 2rem 11.1rem 2rem;
+		text-decoration: none;
+		background: url("#{$images}img-01.svg") no-repeat #0045f5;
+		background-size: 100%;
+		background-position: 50% 50%;
+		border-radius: 1rem;
+		transition: all 0.35s;
+
+		@include breakpoint(md, max) {
+			padding: 6rem 2rem;
+			background-size: cover;
+			background-position: unset;
+		}
+
+		&:hover {
+			@include breakpoint(md, min) {
+				background-size: 120%;
+				background-position: 50% 40%;
+			}
+
+			.btn {
+				.icon-holder {
+					@include breakpoint(md, min) {
+						transform: translateX(1rem);
+					}
+				}
+			}
+		}
+
+		.h3 {
+			margin-bottom: 5.2rem;
+			font-size: 2.6rem;
+			line-height: 1.36;
+			color: #ffffff;
+
+			@include breakpoint(md, max) {
+				margin-bottom: 2.5rem;
+				font-size: 2.8rem;
+			}
+		}
+	}
+}

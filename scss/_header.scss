@@ -1,0 +1,185 @@
+.header {
+	padding-top: 4.1rem;
+
+	@include breakpoint(lg, max) {
+		padding-top: 2.1rem;
+	}
+
+	.main-nav {
+		transition: all 0.45s;
+
+		@include breakpoint(lg, max) {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			background: rgba(25, 25, 27, 0.05);
+			z-index: 99;
+		}
+
+		.menu-opened & {
+			@include breakpoint(lg, max) {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+			}
+		}
+	}
+
+	.main-menu {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 1.4rem;
+
+		@include breakpoint(lg, max) {
+			flex-direction: column;
+			font-size: 1.8rem;
+			text-align: center;
+		}
+
+		.menu-item {
+			@include breakpoint(lg, max) {
+				transition: all 0.45s;
+				opacity: 0;
+				transform: translateY(2rem);
+			}
+
+			&.animate-item {
+				@include breakpoint(lg, max) {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			&:not(:last-child) {
+				@include breakpoint(lg, min) {
+					margin-right: 2.78rem;
+				}
+
+				@include breakpoint(lg, max) {
+					margin-bottom: 3rem;
+				}
+			}
+
+			a {
+				position: relative;
+				text-decoration: none;
+
+				&::after {
+					@include breakpoint(md, min) {
+						content: "";
+						position: absolute;
+						left: 0;
+						bottom: -0.3rem;
+						width: 0;
+						height: 0;
+						border-bottom: 0.1rem solid;
+						transition: all 0.35s;
+					}
+				}
+
+				&:hover {
+					&::after {
+						@include breakpoint(md, min) {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		.ua {
+			display: flex;
+			align-items: center;
+
+			.icon-holder {
+				margin-right: 0.4rem;
+				width: 1.4rem;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+
+	.open-menu {
+		position: relative;
+		width: 2.2rem;
+		height: 2.2rem;
+		display: block;
+		line-height: 0;
+		z-index: 100;
+
+		@include breakpoint(lg, min) {
+			display: none;
+		}
+
+		.title {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			text-transform: uppercase;
+			display: flex;
+			padding-left: 3rem;
+			height: 3rem;
+			align-items: center;
+			font-size: 1.2rem;
+		}
+
+		.line {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			background: $text-color-base;
+			border-radius: 0;
+			height: 0.2rem;
+			transition: $transition;
+
+			@for $i from 1 through 3 {
+				&:nth-child(#{$i}) {
+					@if ($i == 1) {
+						margin-top: -0.8rem;
+					}
+					@if ($i == 2) {
+						margin-top: -0.1rem;
+					}
+					@if ($i == 3) {
+						margin-top: 0.6rem;
+					}
+				}
+			}
+
+			.menu-opened & {
+				@for $i from 1 through 3 {
+					&:nth-child(#{$i}) {
+						@if ($i == 1) {
+							margin-top: 0;
+							transform: rotate(45deg);
+						}
+						@if ($i == 2) {
+							opacity: 0;
+						}
+						@if ($i == 3) {
+							margin-top: 0;
+							transform: rotate(-45deg);
+						}
+					}
+				}
+			}
+		}
+	}
+}
